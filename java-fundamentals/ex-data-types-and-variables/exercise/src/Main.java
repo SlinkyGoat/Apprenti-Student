@@ -180,5 +180,6 @@ public class Main {
         char favoriteGrade = 'F'; // I want to be different!
         System.out.println("My name is Adam Ustby so my initials are " + firstInitial + "." +
                 lastInitial + ". and my favorite grade to get in class is a " + favoriteGrade + "!");
+
     }
 }
