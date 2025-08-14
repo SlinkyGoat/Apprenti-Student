@@ -13,6 +13,28 @@ public class ShoppingCartApp {
         // Here are the options as per decisions made by the team:
             //Order status: pending, processing, shipped, delivered
             // Shipping status: standard, 2-day, overnight
+        enum OrderStatus {
+            PENDING,
+            PROCESSING,
+            SHIPPED,
+            DELIVERED,
+        }
+        System.out.print("Here are the order statuses: ");
+        for(OrderStatus status : OrderStatus.values()){
+            System.out.print(status + " ");
+        }
+        System.out.println();
+
+        enum ShippingStatus {
+            STANDARD,
+            TWO_DAY,
+            OVERNIGHT,
+        }
+        System.out.print("Here are the shipping statuses: ");
+        for(ShippingStatus status : ShippingStatus.values()){
+            System.out.print(status + " ");
+        }
+        System.out.println();
 
         //Assign variables to each of the elements from above.
         int productId = 1;
@@ -20,20 +42,23 @@ public class ShoppingCartApp {
         double productCost = 2.56;
         double productPrice = 4.99;
         int productQuantity = 78;
+
+        OrderStatus orderStatus = OrderStatus.PENDING;
+        ShippingStatus shippingType = ShippingStatus.OVERNIGHT;
         
         //Calculate the total cost of the product based on the
         // inventory.
         double totalCost = productCost * productQuantity;
-        System.out.println(totalCost);
+        System.out.println("The total cost is: " + totalCost);
 
         // Calculate the profit margin of the product.
         double profitMargin = productPrice - productCost;
-        System.out.println(profitMargin);
+        System.out.println("The profit margin is: " + profitMargin);
 
         //Calculate the total potential profit.
         // total profit? profitMargin * productQuantity
         double totalProfit = profitMargin * productQuantity;
-        System.out.println(totalProfit);
+        System.out.println("the total profit is: " + String.format("%.2f", totalProfit));
 
         //Final Message
         System.out.println("Thank you for shopping with your cart at the shopping-cart.net");

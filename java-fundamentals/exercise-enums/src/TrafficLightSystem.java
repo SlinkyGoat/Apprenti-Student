@@ -1,4 +1,4 @@
-public class TrafficLight {
+public class TrafficLightSystem {
     public static void main(String[] args) {
     //Traffic lights are programmed using an indexed array.
 
@@ -6,6 +6,17 @@ public class TrafficLight {
         //RED
         //YELLOW
         //GREEN
+        enum TrafficLight {
+            RED,
+            YELLOW,
+            GREEN,
+        }
+
+        TrafficLight[] lights = TrafficLight.values();
+
+        int userInput = 1;
+        System.out.println("Traffic light signal: " + lights[userInput]);
+
 
     //2. Store all values in an array using values().
 
