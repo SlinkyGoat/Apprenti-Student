@@ -23,6 +23,10 @@ public class ShoppingCartApp {
         double productPrice = 4.99;
         int productQuantity = 78;
 
+        String businessName = "Wizards of the Coast";
+        String contactInfo = "https://company.wizards.com/en";
+        String itemDescription = "Dungeons & Dragons Player Handbook: A starter book with all the rules and supplies needed to start your first game of Dungeons & Dragons.";
+
         double totalCost = productCost * productQuantity;
         System.out.println(totalCost);
 
@@ -40,6 +44,10 @@ public class ShoppingCartApp {
         System.out.println(OrderStatus.PROCESSING);
         System.out.println(OrderStatus.SHIPPED);
         System.out.println(OrderStatus.DELIVERED);
+
+        System.out.println("You are ordering from " + businessName);
+        System.out.println("Your purchased item is " + itemDescription);
+        System.out.println("If you have any question please contact us from " + contactInfo);
 
 
 
