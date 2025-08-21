@@ -7,7 +7,8 @@ public class WhileLoops {
         //● Prompt the user for a starting number.
         Scanner in = new Scanner(System.in);
         System.out.print("Enter a starting number: ");
-        int startingNumber = in.nextInt();
+        //int startingNumber = in.nextInt();
+        int startingNumber = Integer.parseInt(in.nextLine());
         //● Use a while loop to count down to zero.
         while(startingNumber > 0){
             System.out.println(startingNumber);
