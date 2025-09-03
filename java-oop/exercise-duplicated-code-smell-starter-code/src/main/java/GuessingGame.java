@@ -7,29 +7,12 @@ public class GuessingGame {
         double cash;
 
         myIO.writeMessage("Welcome to my guessing game");
-
         myIO.writeMessage("Please answer a series of questions.");
 
-        name = myIO.getInput("What is your name?");
-
-        if (name == null || name.length() == 0) {
-            myIO.writeMessage("It's okay if you don't want to tell me your name.");
-            name = "Nobody";
-        }
-
+        name = myIO.getNonNullNonEmptyStringOrDefault("What is your name?", "It's okay if you don't want to tell me your name.", "Nobody");
         favoriteColor = myIO.getInput("What's your favorite color?");
-
-        favoriteNumber = myIO.getInteger("What's your favorite number?");
-
-        if (favoriteNumber < 1111 || favoriteNumber > 9999) {
-            favoriteNumber =
-                    myIO.getIntegerInBetween(
-                            "I mean what is your favorite number between 1111 and 9999"
-                            , 1111, 9999);
-        }
-
+        favoriteNumber = myIO.getIntegerWithRangePrompt("What's your favorite number?", 1111, 9999, "I mean what is your favorite number between 1111 and 9999");
         favoriteAnimal = myIO.getNonNullNonEmptyString("What is your favorite animal?");
-
         cash = myIO.getMoney();
 
         myIO.writeMessage("Thanks for playing my game!");
