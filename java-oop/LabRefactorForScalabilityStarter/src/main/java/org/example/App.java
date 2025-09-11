@@ -18,10 +18,6 @@ public class App {
         MenuController menu = new MenuController(io, manager);
         menu.run();
 
-
-
-
-
         io.displayMessage("Halting printer monitors");
         manager.haltMonitors();
         io.displayMessage("Goodbye!");

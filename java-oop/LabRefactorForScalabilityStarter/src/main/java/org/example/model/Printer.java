@@ -10,13 +10,15 @@ public class Printer {
     }
 
     private String name;
+    private String id;
     private PrinterStatus status;
     private String printModelName;
     public static final int cyclesPerWarmup = 1;
     public static final int cyclesPerPrint = 2;
 
-    public Printer(String name) {
+    public Printer(String name, String id) {
         setName(name);
+        setId(id);
         setStatus(PrinterStatus.READY);
     }
     public PrinterStatus getStatus() {
@@ -31,10 +33,15 @@ public class Printer {
         return printModelName;
     }
 
-    public void print(String printModelName) {
+    public void setPrintModelName(String printModelName){
         this.printModelName = printModelName;
+    }
+
+    public void print(String printModelName) {
+        setPrintModelName(printModelName);
         this.status = PrinterStatus.WARMING_UP;
         System.out.println(toString() + " - Printing " + printModelName);
+//        this.status = PrinterStatus.READY;
     }
 
     public void clearBed() {
@@ -48,6 +55,14 @@ public class Printer {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getId(){
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String toString() {

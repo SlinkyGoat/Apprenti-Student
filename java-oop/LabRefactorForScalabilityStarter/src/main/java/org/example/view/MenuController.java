@@ -47,13 +47,17 @@ public class MenuController {
                         break;
                     }
                     String name = io.getStringRequired("Enter printer name ");
-                    p = new Printer(name);
+                    p = new Printer(name, id);
                     manager.addPrinter(id, p);
                     io.displayMessage("Added: " + id + " : " + p.getName());
                     break;
                 }
 
                 case "P": // start print on chosen printer
+                    // TODO double check this works
+                    /*
+                    when printing it should go to status warming up, then printing, then complete
+                     */
                     p = getPrinterFromUser();
                     if (p == null) {
                         break;

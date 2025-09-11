@@ -19,6 +19,7 @@ public class PrinterManager {
 
     public void addPrinter(String key, Printer printer){
         printers.put(key, printer);
+        monitors.add(new PrinterMonitor(printer));
     }
 
     public Printer getPrinter(String key){
@@ -40,10 +41,5 @@ public class PrinterManager {
             m.haltMonitor();
         }
         monitors.clear();
-
-        /*
-        add HALTED status to printer
-        set all printers to halted
-         */
     }
 }
