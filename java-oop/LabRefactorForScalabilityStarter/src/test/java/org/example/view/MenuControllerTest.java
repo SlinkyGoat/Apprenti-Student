@@ -2,6 +2,6 @@ package org.example.view;
 
 public class MenuControllerTest {
 
-    
+
 
 }

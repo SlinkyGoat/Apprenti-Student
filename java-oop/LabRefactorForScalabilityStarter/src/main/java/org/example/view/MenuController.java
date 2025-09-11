@@ -54,7 +54,6 @@ public class MenuController {
                 }
 
                 case "P": // start print on chosen printer
-                    // TODO double check this works
                     /*
                     when printing it should go to status warming up, then printing, then complete
                      */
@@ -77,7 +76,7 @@ public class MenuController {
                         break;
                     }
                     if (p.getStatus() == Printer.PrinterStatus.COMPLETE) {
-                        io.displayMessage("Retrieving" + p.getPrintModelName());
+                        io.displayMessage("Retrieving " + p.getPrintModelName());
                         p.clearBed(); // Complete -> Ready
                         io.displayMessage(p.toString());
                     } else {
@@ -100,6 +99,7 @@ public class MenuController {
         List<String> ids = manager.getAllPrinterIDs();
         if (ids.isEmpty()) {
             io.displayMessage("No printers available. Add one first.");
+            return null;
         }
         io.displayMessage("Available printers: ");
         for (String id : ids) io.displayMessage(" - " + id);
