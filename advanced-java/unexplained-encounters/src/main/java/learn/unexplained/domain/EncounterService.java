@@ -3,6 +3,7 @@ package learn.unexplained.domain;
 import learn.unexplained.data.DataAccessException;
 import learn.unexplained.data.EncounterRepository;
 import learn.unexplained.models.Encounter;
+import learn.unexplained.models.EncounterType;
 
 import java.util.List;
 import java.util.Objects;
@@ -61,6 +62,47 @@ public class EncounterService {
             result.addErrorMessage("occurrences must be greater than 0");
         }
 
+        return result;
+    }
+
+    // Add the following Service Methods: findByType(), update(), deleteById()
+
+    public List<Encounter> findByType(EncounterType type) throws DataAccessException{
+        return repository.findByType(type);
+    }
+
+    public EncounterResult update(Encounter encounter) throws DataAccessException {
+        EncounterResult result = validate(encounter);
+
+        if(result.isSuccess()){
+            if(repository.update(encounter)){
+                result.setPayload(encounter);
+            } else {
+                result.addErrorMessage("Encounter ID " + encounter.getEncounterId() + " was not found.");
+            }
+        }
+        return result;
+    }
+
+    public boolean deleteById(int id) throws DataAccessException{
+        EncounterResult result = new EncounterResult();
+        if(!repository.deleteById(id)){
+            result.addErrorMessage("Encounter ID " + id + " not found.");
+        } else {
+            return true;
+        }
+        return false;
+    }
+
+    // update an encounter, searching via id
+    public EncounterResult findById(int id) throws DataAccessException {
+        EncounterResult result = new EncounterResult();
+        Encounter encounter = repository.findById(id);
+        if(encounter != null){
+            result.setPayload(encounter);
+        } else {
+            result.addErrorMessage("Encounter with ID " + id + " does not exist.");
+        }
         return result;
     }
 }

@@ -137,4 +137,15 @@ public class EncounterFileRepository implements EncounterRepository {
         return false;
     }
 
+    // update an encounter, find encounter via ID
+    public Encounter findById(int id) throws DataAccessException {
+        List<Encounter> all = findAll();
+        for (Encounter encounter : all) {
+            if (encounter.getEncounterId() == id) {
+                return encounter;
+            }
+        }
+        return null;
+    }
+
 }

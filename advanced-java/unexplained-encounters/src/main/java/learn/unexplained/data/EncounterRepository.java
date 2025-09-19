@@ -16,4 +16,6 @@ public interface EncounterRepository {
     List<Encounter> findByType(EncounterType type) throws DataAccessException;
 
     boolean update(Encounter newEncounter) throws  DataAccessException;
+
+    Encounter findById(int id) throws DataAccessException;
 }
