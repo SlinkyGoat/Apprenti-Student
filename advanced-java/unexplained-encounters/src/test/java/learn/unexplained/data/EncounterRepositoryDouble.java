@@ -30,4 +30,9 @@ public class EncounterRepositoryDouble implements EncounterRepository {
     public boolean update(Encounter newEncounter) throws DataAccessException {
         return false;
     }
+
+    @Override
+    public Encounter findById(int id) throws DataAccessException {
+        return null;
+    }
 }

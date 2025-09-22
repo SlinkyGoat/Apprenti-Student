@@ -70,6 +70,38 @@ public class View {
         return encounter;
     }
 
+    public EncounterType getType(){
+        return readType();
+    }
+
+    public int getEncounterId(){
+        return readInt("Enter Encounter ID: ");
+    }
+
+    public Encounter updateEncounter(Encounter encounter){
+        printHeader(MenuOption.UPDATE.getMessage());
+        encounter.setType(readType());
+        int occurrences = readNonRequiredInt("Number of occurrences (" + encounter.getOccurrences() + ") :");
+        if(occurrences != -1){
+            encounter.setOccurrences(occurrences);
+        }
+
+        String when = readString("When (" + encounter.getWhen() + ") :");
+        if(!when.trim().isEmpty()){
+            encounter.setWhen(when);
+        }
+
+        String description = readString("Desc (" + encounter.getDescription() + ") :");
+        if(!when.trim().isEmpty()){
+            encounter.setDescription(description);
+        }
+        return encounter;
+    }
+
+    public void writeMessage(String message){
+        System.out.println(message);
+    }
+
     private String readString(String message) {
         System.out.print(message);
         return console.nextLine();
@@ -83,6 +115,26 @@ public class View {
                 System.out.println("Value is required.");
             }
         } while (result.trim().length() == 0);
+        return result;
+    }
+
+    private int readNonRequiredInt(String message){
+        String input = null;
+        int result = -1;
+        boolean isValid = false;
+        do {
+            try {
+                input = readRequiredString(message);
+                if(input.trim().isEmpty()){
+                    break;
+                }
+                result = Integer.parseInt(input);
+                isValid = true;
+            } catch (NumberFormatException ex) {
+                System.out.printf("%s is not a valid number.%n", input);
+            }
+        } while (!isValid);
+
         return result;
     }
 
