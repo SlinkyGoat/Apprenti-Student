@@ -5,8 +5,13 @@ import learn.unexplained.domain.EncounterService;
 import learn.unexplained.ui.Controller;
 import learn.unexplained.ui.View;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+@ComponentScan
+@PropertySource("classpath:data.properties")
 public class App {
 
     public static void main(String[] args) {
@@ -18,8 +23,9 @@ public class App {
 //        View view = new View();
 //        Controller controller = new Controller(service, view);
 
-        ApplicationContext context =
-                new ClassPathXmlApplicationContext("dependency-configuration.xml");
+//        ApplicationContext context =
+//                new ClassPathXmlApplicationContext("dependency-configuration.xml");
+        ApplicationContext context = new AnnotationConfigApplicationContext(App.class);
         Controller controller = context.getBean(Controller.class);
 
         controller.run();
