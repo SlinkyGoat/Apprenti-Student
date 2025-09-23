@@ -35,7 +35,7 @@
 <!--    </bean>-->
 
 
-<!--    <bean id="superMario" class="learn.battle.environment.Battle">-->
+<!--    <bean class="learn.battle.environment.Battle">-->
 <!--        <constructor-arg ref="location"/>-->
 <!--        <constructor-arg>-->
 <!--            <list>-->
@@ -90,7 +90,7 @@
     </bean>
 
 
-    <bean id="mortalKombat" class="learn.battle.environment.Battle">
+    <bean class="learn.battle.environment.Battle">
         <constructor-arg ref="location"/>
         <constructor-arg>
             <list>
