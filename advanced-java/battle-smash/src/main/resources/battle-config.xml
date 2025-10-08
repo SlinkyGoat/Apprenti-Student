@@ -53,7 +53,7 @@
 
 
     <bean id="announcer"
-          class="learn.battle.announcers.Mumbler"/>
+          class="learn.battle.announcers.ProperAnnouncer"/>
 
 
     <bean id="location" class="learn.battle.environment.Location">
