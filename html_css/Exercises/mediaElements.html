@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Here is an image</h1>
+    <img src="./resources/a-e-neumann.png" alt="Mr. Neumann" width="300" height="300">
+    <br>
+
+    <h1>here is a video</h1>
+    <video controls width="400" height="400" poster="./resources/a-e-neumann.png">
+        <source src="./resources/file_example_MP4_480_1_5MG.mp4" type="video/mp4">
+        <p>Could not load this video in your browser</p>
+    </video>
+    <br>
+
+    <h1>here is audio</h1>
+    <audio controls>
+        <source src="./resources/May I show you my wares.wav" type="audio/wav">
+        <source src="./resources/May I show you my wares.mp3" type="audio/mp3">
+    </audio>
+    <br>
+
+    <h1>here is a youtube video</h1>
+    <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/IVAJrYOOtwI"
+        title="DnD Character Sheets"
+        allowfullscreen>
+    </iframe>
+
+    <br>
+    <h1><strong>Reflection Questions</strong></h1>
+    <P>1. How does using <strong>alt text</strong> improve accessibility?</P>
+    <p>If an image is unable to load or there is an issue with the browser it still allows
+        the user a way to see a description of the image so they can understand the context
+        on the webpage
+    </p>
+    <br>
+    <p>2. Why should you use <strong>multiple &lt;source&gt; elements</strong> for video and audio? </p>
+    <p>Like images, if a browser or user is unable to load a specific file type such as .wav then having
+        a second or multiple identical files, differing only by file type, then it allows a better chance for the
+        user to see the content.
+    </p>
+    <br>
+    <p>3. What are the advantages of <strong>embedding a YouTube video instead of hosting it directly?</strong> </p>
+    <p>You do not have to host, store, serve, etc the file yourself, rather YouTube does. Additionally, youtube
+        has many features built in such as quto quality configuration, cross-platform functionality, and many
+        more that you would not have to implement.
+    </p>
+
+</body>
+</html>
