@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <title>Adventurer's Guide to the D&D Box Model</title>
+        <style>
+            .dnd-block {
+                background: #e3f2fd;
+                padding: 16px;
+                border: 2px solid #90caf9;
+                margin-bottom: 16px;
+            }
+            .dnd-inline {
+                background: #bbdefb;
+                color: #1976d2;
+                padding: 4px 10px;
+                border-radius: 4px;
+            }
+            .dnd-block-converted {
+                display: block;
+                background: #ffe0b2;
+                padding: 8px;
+                margin-bottom: 16px;
+                border: 2px dashed #ff9800;
+            }
+            .dnd-inline-block {
+                display: inline-block;
+                background: #c8e6c9;
+                padding: 4px 12px;
+                border-radius: 4px;
+                border: 2px solid #4caf50;
+                margin-right: 8px;
+            }
+            .dnd-box-chest {
+                width: 200px;
+                height: 120px;
+                padding: 20px;
+                border: 5px solid black;
+                margin: 10px;
+                background: lightgreen;
+                display: flex;
+                align-items: center;
+            }
+            .dnd-box-content {
+                width: 200px;
+                padding: 20px;
+                border: 1px solid black;
+                margin: 10px;
+                box-sizing: content-box;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .dnd-box-border {
+                width: 200px;
+                padding: 20px;
+                border: 1px solid black;
+                margin: 10px;
+                box-sizing: border-box;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .dnd-parent {
+                background: #f3e5f5;
+                border: 4px solid #7e57c2;
+                padding: 24px;
+                margin: 32px 0 32px 0;
+            }
+            .dnd-child {
+                background: #fff9c4;
+                border: 2px solid #fbc02d;
+                padding: 16px;
+                margin: 24px 0 24px 0;
+            }
+            .dnd-child-alt {
+                background: #b2ebf2;
+                border: 2px solid #00bcd4;
+                padding: 8px;
+                margin: 24px 0 24px 0;
+            }
+            .margin-collapse-demo {
+                background: #ffcdd2;
+                border: 2px solid #e57373;
+                margin: 40px 0 40px 0;
+                padding: 0;
+            }
+            .margin-collapse-demo2 {
+                background: #c8e6c9;
+                border: 2px solid #388e3c;
+                margin: 40px 0 40px 0;
+                padding: 20px;
+            }
+        </style>
+</head>
+<body>
+    
+    <h1>Adventurer's Guide to the D&D Box Model</h1>
+    <p>In Dungeons & Dragons, every hero, item, and spell fits into a unique box—just like elements on a web page! Let's explore how the box model works in a fantasy setting.</p>
+
+    
+        <div class="dnd-block">
+            <strong>Dungeon Room (Block-level div):</strong> This room is large enough to hold your entire party and all your loot.
+        </div>
+
+        <!-- Inline element -->
+        <span class="dnd-inline">Potion of Healing <em>(inline span)</em> - fits right in your inventory list!</span>
+
+        <br><br>
+
+        <!-- Inline element converted to block -->
+        <span class="dnd-block-converted">
+            <code>Magic Scroll</code> (span converted to block): Unrolls to reveal its secrets, taking up a whole line in your spellbook.
+        </span>
+
+        <br>
+
+        <!-- Flex container with items -->
+        <div style="display:flex; gap:12px; margin-top:24px;">
+            <span class="dnd-inline-block">Bag of Holding (inline-block)</span>
+            <p>Fighter</p>
+            <p>Wizard</p>
+            <p>Rogue</p>
+        </div>
+
+    <br><br>
+
+    <!-- D&D Treasure Chest Box Model Example -->
+    <div class="dnd-box-chest">
+        Treasure Chest (Box Model Example)
+    </div>
+
+    <!-- Box-Sizing Comparison -->
+    <div style="display: flex; gap: 24px; margin-top: 32px;">
+        <div class="dnd-box-content">
+            <span>Spellbook</span>
+        </div>
+        <div class="dnd-box-border">
+            <span>Shield</span>
+        </div>
+    </div>
+
+
+    <!-- Nested Boxes Example -->
+    <div class="dnd-parent">
+        <strong>Castle Hall (Parent Container)</strong>
+        <div class="dnd-child">Throne Room (Child Box)</div>
+        <div class="dnd-child-alt">Armory (Child Box)</div>
+        <div class="dnd-child">Library (Child Box)</div>
+    </div>
+
+    <!-- Margin Collapsing Example -->
+    <div class="margin-collapse-demo">Wizard's Tower (Margin Collapse Demo 1)</div>
+    <div class="margin-collapse-demo">Sorcerer's Study (Margin Collapse Demo 2)</div>
+
+    <!-- Margin Collapsing with Padding/Border -->
+    <div class="margin-collapse-demo2">Enchanted Garden (No Collapse: Padding)</div>
+    <div class="margin-collapse-demo2">Mystic Pool (No Collapse: Padding)</div>
+
+    <!--
+    Reflection Challenge:
+    - When two vertical margins meet (e.g., between Wizard's Tower and Sorcerer's Study), the larger margin is used (margin collapsing).
+    - Adding padding or borders to the parent or child prevents margin collapse between those elements.
+    - Nested margins: Only the outermost vertical margin is applied if no border/padding separates them.
+    - Borders and padding break margin collapse, so both margins are preserved.
+    -->
+
+</body>
+</html>
+
+<!--
+
+1. What specific changes occur in the layout when an element’s display 
+property is changed from inline to block or inline-block? 
+
+    When changing from inline to block the element starts on a new line and keeps the line to itself.
+    When changing to inline-block it remains inline with other elements, but can be changed by width and
+    height unlike normal inline elements.
+
+2. If the width is set to 200px, padding is 20px, border is 5px, and 
+margin is 10px, calculate the total width of the element as rendered on the 
+page.
+
+    200 + (20 * 2) + (5 * 2) + (10 * 2) = 270px
+    if using box-sizing: content-box then -> 200 + (10 * 2) = 220
+    this is because padding and border are included in the defined width so we ignore it in calculation
+
+3. What happens to the margins when elements are nested or when adjacent 
+margins are present? 
+
+    When elements are nested only the outermost vertical margin is applied if there are is no border or
+    padding separating them. When adjacent margins meet then only the larger margin is used to separate the elements
+
+4. How do borders and padding affect margin collapsing? 
+
+    Borders and padding break margin collapse so that both of the margins are preserved, therefore, adding
+    padding or a border to the parent or child element stops margin collapse between those elements.
+
+
+Reflection Questions
+
+1. What is the difference between inline, block, and inline-block elements? 
+    inline       -> only takes up as much space as it's content. CANNOT set height/width etc
+    block        -> on a single line, uses full width so other elements cannot be on the same line
+    inline-block -> acts like an inline element but allows the user to set and define attributes like height/width
+
+2. How does using flex or grid display modes alter the traditional box model behaviors? 
+    they ignore most block related features such as margin-collapsing and inherit the flex/grid
+    type to their children elements
+
+3. How do margin and padding influence the total size of an element? 
+    Based on the box-sizing rule, they either add extra separation to an element or are included in the total width
+
+4. In what scenarios might you choose box-sizing: border-box over content-box? 
+    If you want the padding and border to be a "part" of your element then you might consider using border-box
+    so you can more easily maintain the distances between elements by only having to worry about margin.
+
+5. How does margin collapsing work in nested structures? 
+    If two margins are directly adjacent then margin collapsing occurs by choosing the larger value or subtracting
+    values (in the case of a negative margin). In nested structures this is still true unless a border or padding
+    happens to separate the margins in which case both margins are preserved
+
+6. What are the effects of negative margins, and when might they be useful? 
+    Negative margins move the element closer to its adjacent surroundings rather than move it away. This could
+    be useful if you want to overlap or move things closer in the case of a padding or border moving it away.
+-->
