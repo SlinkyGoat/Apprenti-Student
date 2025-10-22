@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/submit-form" method="post">
+        
+    <fieldset>
+        <legend>Contact Form</legend>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required placeholder="Enter your name">
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required placeholder="Enter your email">
+
+        <label for="reason">Reason for Contact:</label>
+        <select id="reason" name="reason" required>
+            <option value="">--Please choose an option--</option>
+            <option value="Support">Support</option>
+            <option value="Feedback">Feedback</option>
+            <option value="Business Inquiry">Business Inquiry</option>
+        </select>
+
+        <label for="topic">Topic:</label>
+        <input list="topics" id="topic" name="topic" placeholder="Choose or type a topic">
+        <datalist id="topics">
+            <option value="Account Access">
+            <option value="Website Bug">
+            <option value="Feature Request">
+            <option value="Pricing">
+            <option value="Other">
+        </datalist>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required placeholder="Type your message here"></textarea>
+
+        <button type="submit">Send Message</button>
+    </fieldset>
+    </form>
+</body>
+</html>
