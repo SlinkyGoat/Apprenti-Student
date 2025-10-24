@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+    <style>
+        .custom-btn {
+            background-color: purple;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Website Header -->
+    <div class="container text-center mt-4">
+        <h1>Welcome to Bootstrap</h1>
+        <p class="lead">Let's build a responsive webpage!</p>
+    </div>
+
+    <!-- Nav Bar -->
+    <nav class="navbar narvbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">MyWebsite</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar collapseable content-->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Grid example -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4 bg-primary text-white p-3">Column 1</div>
+            <div class="col-md-4 bg-primary text-white p-3">Column 2</div>
+            <div class="col-md-4 bg-primary text-white p-3">Column 3</div>
+        </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="container mt-4 text-center">
+        <button class="btn btn-primary">Primary</button>
+        <button class="btn btn-secondary">Secondary</button>
+        <button class="btn btn-success">Success</button>
+        <button class="custom-btn">Custom Button</button>
+
+    </div>
+
+    <!-- background coloring -->
+    <div class="container mt-4">
+        <div class="alert alert-warning">This is a warning</div>
+        <div class="alert alert-success">This is a success</div>
+    </div>
+
+    <!-- cards -->
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="../assets/a-e-neumann.png" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Card Title</h5>
+                        <p>This is a simple card with text and an image</p>
+                        <a href="#" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container text-center mt-5">
+        <h2 class="text-primary">Utility Classes</h2>
+        <p class="text-muted">Bootstrap Yadda Yadda</p>
+        <div class="p-3 bg-light border">This div has a border</div>
+    </div>
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+    </script>
+</body>
+</html>
