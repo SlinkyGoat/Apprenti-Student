@@ -17,11 +17,25 @@
   padding: 0;
 }
 
+.component-button button:active {
+  background-color: #e0e0e0cc;
+  border: 0;
+  font-size: 1.5rem;
+  margin: 0 1px 0 0;
+  flex: 1 0 auto;
+  padding: 0;
+}
+
 .component-button:last-child button {
   margin-right: 0;
 }
 
 .component-button.orange button {
   background-color: #f5923e;
+  color: white;
+}
+
+.component-button.orange button:active {
+  background-color: #b86f30;
   color: white;
 }

@@ -4,5 +4,16 @@ import PropTypes from "prop-types";
 import "./Display.css";
 
 export default class Display extends React.Component {
-  
+    // props: value={this.state.next || this.state.total || "0"
+
+    render() {
+        return (
+            <div className="component-display">
+                <div>
+                    {this.props.value}
+                </div>
+                
+            </div>
+        );
+    }
 }
