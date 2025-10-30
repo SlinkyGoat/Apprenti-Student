@@ -1,35 +1,69 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import DndClass from './DndClass'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const classes = [
+    'barbarian',
+    'bard',
+    'cleric',
+    'druid',
+    'fighter',
+    'monk',
+    'paladin',
+    'ranger',
+    'rogue',
+    'sorcerer',
+    'warlock',
+    'wizard'
+  ];
+  const [selectedClass, setSelectedClass] = useState(classes[0]);
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    setLoading(true);
+    setError(null);
+    setData(null);
+    fetch(`https://www.dnd5eapi.co/api/classes/${selectedClass}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setData(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        setError(error);
+        setLoading(false);
+      });
+  }, [selectedClass]);
+
+  const handleChange = (e) => {
+    setSelectedClass(e.target.value);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div>
+      <label htmlFor="class-select">Choose a D&D class: </label>
+      <select id="class-select" value={selectedClass} onChange={handleChange}>
+        {classes.map((cls) => (
+          <option key={cls} value={cls}>{cls.charAt(0).toUpperCase() + cls.slice(1)}</option>
+        ))}
+      </select>
+      <div style={{ marginTop: '1em' }}>
+        {loading && 'Loading...'}
+        {error && `Error: ${error.message}`}
+        <DndClass data={data} />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
 export default App
